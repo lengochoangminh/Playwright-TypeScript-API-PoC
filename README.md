@@ -35,6 +35,7 @@
   <br><img width="900" alt="AllureReport" src="https://github.com/lengochoangminh/Playwright-TS-API-PoC/assets/29770042/56122a95-dccc-4e80-8c79-0068d22c2870">
 
 - CI/CD with GitHub Actions
+  <br><img width="800" alt="Screenshot 2024-05-31 at 15 18 50" src="https://github.com/lengochoangminh/Playwright-TypeScript-API-PoC/assets/29770042/3145eb29-a83f-4799-9eb2-c3eae9700183">
 
 - Install Prettier and ESLint to help solve common errors and consistency your code base
   <br><img width="600" alt="EslintExample" src="https://github.com/lengochoangminh/Playwright-TS-API-PoC/assets/29770042/3d0e0378-7548-4916-bbfe-6ce68885ca38">
