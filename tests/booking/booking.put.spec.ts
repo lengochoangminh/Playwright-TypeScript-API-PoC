@@ -31,7 +31,7 @@ test.describe("booking/{id} PUT requests @booking", async () => {
     futureCheckinDate = await futureOpenCheckinDate(roomId);
   });
 
-  test(`PUT booking with specific room id @happy`, async ({ request }) => {
+  test(`PUT booking with specific room id @smoke`, async ({ request }) => {
     const putBody = {
       bookingid: bookingId,
       roomid: roomId,

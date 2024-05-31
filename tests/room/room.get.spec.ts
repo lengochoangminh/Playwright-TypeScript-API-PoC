@@ -1,7 +1,7 @@
 //COVERAGE_TAG: GET /room/
 //COVERAGE_TAG: GET /room/{id}
 
-import { createRoom, defaultRoom } from "@datafactory/room";
+import { createRoom } from "@datafactory/room";
 import { validateJsonSchema } from "@helpers/validateJsonSchema";
 import { test, expect } from "@playwright/test";
 
@@ -14,7 +14,7 @@ test.describe("room/ GET requests @room", async () => {
     roomId = room.roomid;
   });
 
-  test("GET all rooms @happy", async ({ request }) => {
+  test("GET all rooms", async ({ request }) => {
     const response = await request.get("/room/");
 
     expect(response.status()).toBe(200);
@@ -32,9 +32,8 @@ test.describe("room/ GET requests @room", async () => {
 
     expect(roomToAssertAgainst).toMatchObject(room);
 
-
-    // get first room in the array and assert against the default room information
     /** === Commented when test data is unstable ===
+    // get first room in the array and assert against the default room information
     const firstRoom = body.rooms[0];
     expect(firstRoom).toMatchObject(defaultRoom);
 
@@ -55,7 +54,7 @@ test.describe("room/ GET requests @room", async () => {
     await validateJsonSchema("GET_room", "room", body);
   });
 
-  test("GET a room by id @happy", async ({ request }) => {
+  test("GET a room by id @smoke", async ({ request }) => {
     const response = await request.get(`/room/${roomId}`);
 
     expect(response.status()).toBe(200);
