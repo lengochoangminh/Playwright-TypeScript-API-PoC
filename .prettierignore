@@ -1,0 +1,10 @@
+# Playwright Specific
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Docs files
+allure-results
+*/**/*.json

@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "92c87daa-3f8b-4956-86f6-16ea8a1d7258",
+		"name": "automationintesting.online",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15693875"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "cookies",
+						"value": "set-cookie"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://automationintesting.online/auth/login",
+					"protocol": "https",
+					"host": [
+						"automationintesting",
+						"online"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all booking",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "token=7pRk0XQXoId3gyzI; Path=/"
+					}
+				],
+				"url": {
+					"raw": "https://automationintesting.online/booking/",
+					"protocol": "https",
+					"host": [
+						"automationintesting",
+						"online"
+					],
+					"path": [
+						"booking",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET booking by Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "token=wartvjMzNSS4KPXt; Path=/"
+					}
+				],
+				"url": {
+					"raw": "https://automationintesting.online/booking/1",
+					"protocol": "https",
+					"host": [
+						"automationintesting",
+						"online"
+					],
+					"path": [
+						"booking",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET booking summary with specific room id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://automationintesting.online/booking/summary?roomid=11",
+					"protocol": "https",
+					"host": [
+						"automationintesting",
+						"online"
+					],
+					"path": [
+						"booking",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "roomid",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST- Create Room",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "token=6yytUhmGd16rbdx8; Path=/"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"roomName\": \"701\",\n    \"type\": \"Double\",\n    \"accessible\": false,\n    \"image\": \"https://loremflickr.com/500/500/cat?lock=8887566256308224\",\n    \"description\": \"I'll program the haptic SSD feed, that should interface the SQL circuit!\",\n    \"features\": [\n        \"Heating\",\n        \"Air Conditioning\",\n        \"Sea View\"\n    ],\n    \"roomPrice\": \"343\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://automationintesting.online/room/",
+					"protocol": "https",
+					"host": [
+						"automationintesting",
+						"online"
+					],
+					"path": [
+						"room",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Add new booking room with full body",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"roomid\": 2,\n    \"firstname\": \"Rebekah\",\n    \"lastname\": \"Lind\",\n    \"depositpaid\": true,\n    \"email\": \"Delores_Dibbert11@yahoo.com\",\n    \"phone\": \"32649076607\",\n    \"bookingdates\": {\n        \"checkin\": \"2024-05-18\",\n        \"checkout\": \"2024-05-20\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://automationintesting.online/booking/",
+					"protocol": "https",
+					"host": [
+						"automationintesting",
+						"online"
+					],
+					"path": [
+						"booking",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Update booking with specific room id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "token=Yy8okeLHEKLptlvw; Path=/"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bookingid\": 33,\n    \"roomid\": 4,\n    \"firstname\": \"Rebekah\",\n    \"lastname\": \"Lind\",\n    \"depositpaid\": true,\n    \"bookingdates\": {\n        \"checkin\": \"2024-01-15\",\n        \"checkout\": \"2024-01-20\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://automationintesting.online/booking/33",
+					"protocol": "https",
+					"host": [
+						"automationintesting",
+						"online"
+					],
+					"path": [
+						"booking",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Booking ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "token=IaihxEMpt3pjYxoW; Path=/"
+					}
+				],
+				"url": {
+					"raw": "https://automationintesting.online/booking/17",
+					"protocol": "https",
+					"host": [
+						"automationintesting",
+						"online"
+					],
+					"path": [
+						"booking",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Room",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "token=6yytUhmGd16rbdx8; Path=/"
+					}
+				],
+				"url": {
+					"raw": "https://automationintesting.online/room/",
+					"protocol": "https",
+					"host": [
+						"automationintesting",
+						"online"
+					],
+					"path": [
+						"room",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
