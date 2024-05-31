@@ -1,38 +1,33 @@
-import { test, expect } from '@playwright/test';
+//COVERAGE_TAG: POST /room/
 
-test("POST /room to create a room @happy", async ({ request }) => {
+import { createRandomRoomBody } from "@datafactory/room";
+import { validateJsonSchema } from "@helpers/validateJsonSchema";
+import { test, expect } from "@playwright/test";
 
-    const response = await request.post("https://automationintesting.online/auth/login", {
-        data: {
-            username: "admin",
-            password: "password",
-        },
+test.describe("room/ POST requests @room", async () => {
+    let updateRoomBody;
+
+    test.beforeEach(async () => {
+
+        updateRoomBody = await createRandomRoomBody();
     });
 
-    expect(response.status()).toBe(200);
-    const headers = response.headers();
-    const cookies = headers["set-cookie"];
+    test("POST /room to create a room @smoke", async ({ request }) => {
+        const response = await request.post(`/room/`, {
+            data: updateRoomBody,
+        });
 
-    const response_create_room = await request.post("https://automationintesting.online/room/", {
-        headers: cookies,
-        data: {
-            "roomName": "709",
-            "type": "Double",
-            "accessible": false,
-            "image": "https://loremflickr.com/500/500/cat?lock=8887566256308224",
-            "description": "I'll program the haptic SSD feed, that should interface the SQL circuit!",
-            "features": [
-                "Heating",
-                "Air Conditioning",
-                "Sea View"
-            ],
-            "roomPrice": "343"
-        },
+        expect(response.status()).toBe(201);
+        const body = await response.json();
+
+        expect(body.name).toEqual(updateRoomBody.name);
+        expect(body.accessible).toEqual(updateRoomBody.accessible);
+        expect(body.description).toEqual(updateRoomBody.description);
+        expect(body.features).toEqual(updateRoomBody.features);
+        expect(body.image).toEqual(updateRoomBody.image);
+        expect(body.roomName).toEqual(updateRoomBody.roomName);
+        expect(body.type).toEqual(updateRoomBody.type);
+
+        await validateJsonSchema("POST_room", "room", body);
     });
-
-    expect(response_create_room.status()).toBe(201);
-    const body = await response_create_room.json()
-    console.log(JSON.stringify(body.roomid));
 });
-
-

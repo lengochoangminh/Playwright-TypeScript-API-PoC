@@ -16,7 +16,7 @@ test.describe("booking/{id} DELETE requests @booking", async () => {
     bookingId = futureBooking.bookingid;
   });
 
-  test("DELETE booking with specific room id: @happy", async ({ request }) => {
+  test("DELETE booking with specific room id: @smoke", async ({ request }) => {
     const response = await request.delete(`booking/${bookingId}`);
 
     expect(response.status()).toBe(202);

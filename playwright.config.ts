@@ -34,17 +34,27 @@ export default defineConfig({
   },
 
   projects: [
-    { name: "setup", testMatch: /tests\/setup.ts/, teardown: "teardown" },
+    { name: "setup", testMatch: /tests\/setup.ts/ },
     {
-      name: "api-checks",
+      name: "room-api-checks",
       use: {
         storageState: ".auth/admin.json",
       },
+      testMatch: /tests\/room/,
       dependencies: ["setup"],
     },
     {
-      name: "teardown",
-      testMatch: /teardown.ts/,
+      name: "booking-api-checks",
+      use: {
+        storageState: ".auth/admin.json",
+      },
+      testMatch: /tests\/booking/,
+      dependencies: ["room-api-checks"],
+    },
+    {
+      name: "test-coverage",
+      testMatch: /coverage.ts/,
+      dependencies: ["booking-api-checks"],
     },
   ],
 });

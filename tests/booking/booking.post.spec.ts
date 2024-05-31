@@ -25,7 +25,7 @@ test.describe("booking/ POST requests @booking", async () => {
     );
   });
 
-  test("POST new booking with full body @happy", async ({ request }) => {
+  test("POST new booking with full body @smoke", async ({ request }) => {
     const response = await request.post("booking/", {
       data: requestBody,
     });

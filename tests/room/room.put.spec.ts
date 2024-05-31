@@ -37,7 +37,7 @@ test.describe("room/ PUT requests @room", async () => {
     await validateJsonSchema("PUT_room_id", "room", body);
   });
 
-  test("PUT /room to update features @happy", async ({ request }) => {
+  test("PUT /room to update features @smoke", async ({ request }) => {
     const randomFeatures = randomRoomFeaturesCount(10);
 
     // Overwrites the features array with random features

@@ -1,11 +1,4 @@
-import { getEndpointCoverage } from "@helpers/coverage";
-import { test as coverage } from "@playwright/test";
 import { test as setup } from "@playwright/test";
-
-coverage("calculate coverage", async () => {
-  await getEndpointCoverage("booking");
-  await getEndpointCoverage("room");
-});
 
 const username = process.env.ADMIN_NAME;
 const password = process.env.ADMIN_PASSWORD;

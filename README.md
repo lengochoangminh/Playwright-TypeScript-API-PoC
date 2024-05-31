@@ -20,7 +20,7 @@
   - Run the tests for Dev environment: `env=dev npx playwright test`
   - Run the tests for QA environment: `env=qa npx playwright test`
 
-- Run the tests by tags. For example, only run the happy tests: `env=dev npx playwright test --grep @happy`
+- Run the tests by tags. For example, only run the happy tests: `env=dev npx playwright test --grep @smoke`
 
 - Consume the API Docs (Swagger) to calculate the test coverage.
   <br><img width="300" alt="test-coverage" src="https://github.com/lengochoangminh/Playwright-TS-API-PoC/assets/29770042/a96f4f3c-d922-4d88-b9ad-ae7f11ceb565">

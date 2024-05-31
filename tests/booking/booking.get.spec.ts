@@ -9,7 +9,7 @@ import { isValidDate } from "@helpers/date";
 
 test.describe("booking/ GET requests @booking", async () => {
 
-  test("GET booking summary with specific room id @happy", async ({
+  test("GET booking summary with specific room id @smoke", async ({
     request,
   }) => {
     const response = await request.get("booking/summary?roomid=1");
@@ -49,7 +49,7 @@ test.describe("booking/ GET requests @booking", async () => {
     expect(body.path).toBe("/booking/summary");
   });
 
-  test("GET all bookings with details @happy", async ({ request }) => {
+  test("GET all bookings with details @smoke", async ({ request }) => {
     const response = await request.get("booking/");
     expect(response.status()).toBe(200);
 
