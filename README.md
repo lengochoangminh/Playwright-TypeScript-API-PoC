@@ -8,8 +8,10 @@
 ## Set up
 
 1. Clone the repo and install the dependencies: `npm install`
-2. Run the tests on the DEV environment: `env=dev npx playwright test`
-3. Check out the test results via Allure Report: `npx allure serve allure-results`
+2. Run the tests on the DEV environment:
+   - Macbook: `env=dev npx playwright test`
+   - Windows: `set env=dev && npx playwright test`
+4. Check out the test results via Allure Report: `npx allure serve allure-results`
 
 ## Framework Features
 
